@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Wishes | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🪔 DIWALI WISHES</div>
+        <div class="header-text">Spread happiness. Share light.</div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">YOUR FESTIVE GREETING STUDIO</p>
+            <h1>Create Beautiful<br><span>Diwali Wishes.</span></h1>
+            <p>Personalized greetings for everyone you love.</p>
+        </section>
+
+        <section class="form-card">
+            <div class="section-heading">
+                <div>
+                    <h2 id="formTitle">Create a Greeting</h2>
+                    <p>Add a relative and personalize their wish.</p>
+                </div>
+                <span class="diya-icon">✦</span>
+            </div>
+
+            <form id="greetingForm">
+
+                <label for="senderName">Your name (Sender)</label>
+                <input type="text" id="senderName"
+                    placeholder="Enter your name" required>
+
+                <label for="recipientName">Recipient's name</label>
+                <input type="text" id="recipientName"
+                    placeholder="Enter relative's name" required>
+
+                <label for="relationship">Relationship</label>
+                <select id="relationship" required>
+                    <option value="">Select relationship</option>
+                    <option>Father</option>
+                    <option>Mother</option>
+                    <option>Grandfather</option>
+                    <option>Grandmother</option>
+                    <option>Uncle</option>
+                    <option>Aunt</option>
+                    <option>Brother</option>
+                    <option>Sister</option>
+                    <option>Cousin</option>
+                    <option>Friend</option>
+                    <option>Teacher</option>
+                    <option>Other</option>
+                </select>
+
+                <div class="form-buttons">
+                    <button type="submit" id="saveButton" class="primary-btn">
+                        Generate Greeting Link ↗
+                    </button>
+                    <button type="button" id="cancelEdit"
+                        class="secondary-btn hidden">
+                        Cancel
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <section class="list-section">
+
+            <div class="list-heading">
+                <div>
+                    <h2>Your Greetings</h2>
+                    <p>Manage your personalized links.</p>
+                </div>
+                <span id="totalCount" class="count">0</span>
+            </div>
+
+            <div id="greetingList" class="greeting-list"></div>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">🪔</div>
+                <h3>No greetings yet</h3>
+                <p>Create your first personalized Diwali greeting above.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Made with light and love ✨</p>
+        <p>© 2026 Diwali Wishes</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

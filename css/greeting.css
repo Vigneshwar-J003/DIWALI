@@ -1,0 +1,425 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(
+        ellipse at center,
+        #251606 0%,
+        #100b05 50%,
+        #050403 100%
+    );
+    color: #fff4dc;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.celebration {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.top-label {
+    color: #d5ae68;
+    letter-spacing: 4px;
+    font: 11px Arial, sans-serif;
+    margin: 15px 0 35px;
+}
+
+.diya-area {
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.diya {
+    width: 115px;
+    height: 65px;
+    background: linear-gradient(
+        #e9bd70,
+        #8c4c14
+    );
+    border-radius: 10% 10% 55% 55%;
+    box-shadow: 0 0 35px #d18b2e55;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s;
+}
+
+.diya::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 12px;
+    background: #f3d391;
+    border-radius: 50%;
+    top: -5px;
+    left: 0;
+}
+
+.diya-light {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #fff4c0;
+    top: -13px;
+    left: 50%;
+    box-shadow: 0 0 20px 10px #ffb13d55;
+}
+
+.flame {
+    width: 23px;
+    height: 39px;
+    background: linear-gradient(
+        to top,
+        #ff8500,
+        #fff0a3
+    );
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    top: 48px;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.5s;
+    filter: drop-shadow(0 0 15px orange);
+}
+
+.diya-area.lit .flame {
+    opacity: 1;
+    transform: scale(1);
+    animation: flicker 1s infinite alternate;
+}
+
+.diya-area.lit .diya {
+    box-shadow: 0 0 55px #ffad32aa;
+}
+
+@keyframes flicker {
+    from { transform: scale(1) rotate(-4deg); }
+    to { transform: scale(1.12) rotate(4deg); }
+}
+
+.tap-hint {
+    color: #c9a46b;
+    font: 10px Arial, sans-serif;
+    letter-spacing: 2px;
+    margin-top: 28px;
+}
+
+.greeting-content {
+    max-width: 650px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 1.2s;
+    visibility: hidden;
+    margin-top: 5px;
+}
+
+.greeting-content.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.greeting-label {
+    color: #d7b77e;
+    font: 10px Arial, sans-serif;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: clamp(43px, 9vw, 78px);
+    color: #fff0cf;
+    text-shadow: 0 0 25px #e4a63a77;
+}
+
+h1 span {
+    display: block;
+    color: #e4ba72;
+}
+
+.gold-line {
+    width: 90px;
+    height: 1px;
+    background: #d6ad65;
+    margin: 25px auto;
+}
+
+h2 {
+    font-size: 24px;
+    color: #f0d39d;
+    margin-bottom: 20px;
+}
+
+.message {
+    color: #ded1b8;
+    line-height: 1.9;
+    font-size: 16px;
+    max-width: 520px;
+    margin: auto;
+}
+
+.wish {
+    color: #dcb879;
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 25px;
+    line-height: 1.7;
+}
+
+.sender {
+    margin-top: 35px;
+    color: #b9aa93;
+    line-height: 2;
+    font-size: 14px;
+}
+
+.sender strong {
+    color: #e7bd76;
+    font-size: 21px;
+}
+
+.celebrate-btn {
+    margin-top: 28px;
+    padding: 14px 28px;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #f2d18c, #b77a2f);
+    color: #1b1005;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.sound-btn {
+    display: block;
+    margin: 12px auto;
+    color: #d9bd8c;
+    background: transparent;
+    border: 1px solid #66502e;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.footer-message {
+    color: #91794f;
+    font: 9px Arial, sans-serif;
+    letter-spacing: 3px;
+    margin: 35px 0 15px;
+}
+
+.spark {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10;
+    animation: sparkle 1.2s ease-out forwards;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0);
+    }
+}
+
+@media(max-width: 500px) {
+    .celebration {
+        padding: 25px 18px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .diya-area {
+        height: 195px;
+    }
+}
+
+/* ===== ADVANCED DIWALI EFFECTS ===== */
+
+/* Animated rangoli decoration */
+
+.rangoli {
+    position: fixed;
+    width: 330px;
+    height: 330px;
+    left: 50%;
+    bottom: -180px;
+    transform: translateX(-50%);
+    border: 2px solid #c99b4d55;
+    border-radius: 50%;
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            transparent 0deg 9deg,
+            #d4a64d55 10deg 11deg,
+            transparent 12deg 19deg
+        );
+    box-shadow:
+        0 0 25px #d4a64d22,
+        inset 0 0 30px #d4a64d22;
+    z-index: 0;
+    pointer-events: none;
+    animation: rangoliAppear 3s ease-out both,
+               rangoliRotate 45s linear infinite;
+}
+
+.rangoli::before,
+.rangoli::after {
+    content: "";
+    position: absolute;
+    inset: 30px;
+    border: 1px solid #e2b85f66;
+    border-radius: 50%;
+}
+
+.rangoli::after {
+    inset: 75px;
+    border: 2px dotted #e2b85f77;
+}
+
+@keyframes rangoliAppear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes rangoliRotate {
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* Fireworks canvas */
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Falling petals */
+
+#petals {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 6;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    border-radius: 80% 10% 80% 10%;
+    background: linear-gradient(
+        135deg,
+        #ffbd55,
+        #e87924,
+        #b84a20
+    );
+    box-shadow: 0 0 8px #ffae3844;
+    animation: petalFall linear forwards;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translate3d(0, -30px, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate3d(var(--drift), 110vh, 0)
+                   rotate(var(--rotation));
+        opacity: 0;
+    }
+}
+
+/* Cinematic greeting reveal */
+
+.greeting-content.show h1 {
+    animation: titleReveal 1.5s ease both;
+}
+
+.greeting-content.show .message {
+    animation: textReveal 1.8s 0.3s both;
+}
+
+.greeting-content.show .sender {
+    animation: textReveal 1.8s 0.6s both;
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rangoli {
+        animation: none;
+    }
+
+    .petal,
+    .greeting-content.show h1,
+    .greeting-content.show .message,
+    .greeting-content.show .sender {
+        animation: none;
+    }
+}
